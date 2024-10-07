@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+    #titulo {
+        font-size: 30px; /* Tamanho menor para telas menores */
+    }
+
+    .result-title {
+        font-size: 30px; /* Tamanho menor para o título dos resultados */
+    }
+
+    .weather-image, .result-icon {
+        max-width: 150px; /* Ajusta o tamanho da imagem para dispositivos móveis */
+    }
+
+    .bordered-box {
+        padding: 10px; /* Menos padding para telas menores */
+    }
+
+    .form-label {
+        font-size: 14px; /* Tamanho menor para o rótulo do formulário */
+    }
+
+    .rounded-input {
+        font-size: 14px; /* Tamanho menor para os inputs */
+    }
+
+    .btn-primary {
+        font-size: 16px; /* Tamanho menor para o botão */
+    }
+}

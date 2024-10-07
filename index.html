@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DncWeather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #F2F2F2;
+            font-family: 'Inter', sans-serif;
+        }
+        .navbar {
+            background-color: #0C70F2;
+        }
+
+        #titulo-nav{
+            font-size: 50px;
+            font-weight: 800;
+        }
+
+        .link-nav{
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .link-nav:hover{
+            transform: translateY(-1px);
+        }
+
+        #titulo{
+            text-align: justify;
+            font-size: 50px;
+            font-weight: 800;
+        }
+        .weather-image {
+            max-width: 255px;
+            height: auto;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+
+        #botao:hover{
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: #0C70F2;
+            border: none;
+            border-radius: 25px;
+        }
+        .btn-primary:hover {
+            background-color: #0A5BBF;
+        }
+        .result-title {
+            font-size: 50px;
+            font-weight: bold;
+            color: #000;
+        }
+        .result-icon {
+            max-width: 40px;
+            margin-left: 10px;
+        }
+        footer {
+            background-color: #0C70F2;
+            color: white;
+        }
+        .bordered-box {
+            border: 1px solid #0C70F2;
+            border-radius: 15px; /* Arredondar as seções de resultados */
+            padding: 15px;
+            margin-top: 20px;
+            background-color: white;
+        }
+        .card {
+            border-radius: 15px;
+        }
+        .rounded-input {
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a id="titulo-nav" class="navbar-brand text-white" href="#">DncWeather</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white link-nav" href="#">Endereços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white link-nav" href="#">Previsão do Tempo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Section -->
+<div class="container text-center my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 id="titulo" class="result-title">Descubra Mais com Precisão: <br>
+                Previsões do Tempo e endereços em tempo real.</h1>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="clima.svg" alt="Weather Image" class="img-fluid weather-image">
+        </div>
+    </div>
+</div>
+
+<!-- Form Section -->
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-5 shadow" style="width: 100%; max-width: 500px;">
+        <form id="weather-form">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Primeiro Nome</label>
+                <input type="text" class="form-control rounded-input" id="firstName" placeholder="Insira seu primeiro nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control rounded-input" id="email" placeholder="Insira seu e-mail" required>
+            </div>
+            <div class="mb-3">
+                <label for="cep" class="form-label">Digite o CEP</label>
+                <input type="text" class="form-control rounded-input" id="cep" placeholder="Insira o CEP" required>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="latitude" class="form-label">Latitude</label>
+                    <input type="text" class="form-control rounded-input" id="latitude" placeholder="Latitude" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="longitude" class="form-label">Longitude</label>
+                    <input type="text" class="form-control rounded-input" id="longitude" placeholder="Longitude" required>
+                </div>
+            </div>
+            <div class="d-grid mt-4">
+                <button id="botao" type="submit" class="btn btn-primary">Acessar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Results Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Resultado da busca por CEP com imagem ao lado -->
+        <div class="col-12 mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="h3">Resultado da busca por CEP:</h3>
+                <img src="cep.svg" alt="Icone de CEP" class="result-icon">
+            </div>
+            <div class="bordered-box">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="background-color: #0C70F2; color: white;">
+                                <th scope="col">Logradouro/nome</th>
+                                <th scope="col">Bairro/Distrito</th>
+                                <th scope="col">Localidade/UF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Previsão do tempo com imagem ao lado -->
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="h3">Previsão do tempo na região:</h3>
+                <img src="tempo.svg" alt="Icone de Previsão do Tempo" class="result-icon">
+            </div>
+            <div class="bordered-box">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-3 mt-5">
+    <p>Termos de Uso | Política de Privacidade</p>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
